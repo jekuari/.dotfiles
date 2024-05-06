@@ -1,0 +1,6 @@
+[submodule "nvim"]
+	path = nvim
+	url = https://github.com/jekuari/nvim-conf
+[submodule "tmux-sessionizer"]
+	path = tmux-sessionizer
+	url = https://github.com/jekuari/tmux-sessionizer

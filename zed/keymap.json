@@ -1,0 +1,63 @@
+[
+  {
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-d": "editor::AcceptPartialCopilotSuggestion"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "J": "vim::Down",
+      "K": "vim::Up",
+      "j": ["workspace::SendKeystrokes", "J z z"],
+      "k": ["workspace::SendKeystrokes", "K z z"],
+      "space": "zed::NoAction",
+      "space w": "workspace::Save",
+      "space q": "pane::CloseActiveItem",
+      "space t": "terminal_panel::ToggleFocus",
+      "g d": "editor::GoToDefinition",
+      "g i": "editor::GoToImplementation",
+      "g t": "editor::GoToTypeDefinition",
+      "g l": "editor::GoToPrevDiagnostic",
+      "space f": "file_finder::Toggle",
+      "space s": "workspace::NewSearch",
+      "space d": "zed::OpenDefaultKeymap"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover"
+      // put key-bindings here if you want them to work only in normal mode
+      // "down": ["workspace::SendKeystrokes", "4 j"]
+      // "up": ["workspace::SendKeystrokes", "4 k"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
+    "bindings": {
+      // visual, visual line & visual block modes "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp",
+      "g b": "editor::ToggleComments",
+      "space S": [
+        "vim::PushOperator",
+        {
+          "AddSurrounds": {}
+        }
+      ]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    "bindings": {
+      // put key-bindings here if you want them to work in insert mode
+      // e.g.
+      "j k": "vim::NormalBefore" // remap jj in insert mode to escape.
+    }
+  }
+]
