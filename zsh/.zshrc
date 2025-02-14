@@ -138,6 +138,12 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="/Users/fere/go/bin:$PATH"
 export PATH="$PATH:/Users/fere/.dotnet/tools"
 
+
+# ZVM - Zig Version Manager
+export ZVM_INSTALL="$HOME/.zvm/self"
+export PATH="$PATH:$HOME/.zvm/bin"
+export PATH="$PATH:$ZVM_INSTALL/"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
@@ -150,8 +156,41 @@ alias p="cd ~/Projects"
 alias s="~/.config/tmux-sessionizer/tmux-sessionizer.sh"
 alias x="exit"
 alias tn="tmux new -s"
+alias ta="tmux attach"
+alias tl="tmux ls"
 
 alias ls="eza"
 
 [ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
 
+alias sshfer="sudo route delete 0/1 && sudo route add 192.168.1.194 -interface utun4 && ssh fer"
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_LIBRARY_PATH"
+
+swdev() {
+  selected=$(git branch | fzf)
+  echo $selected
+  if [[ -z $selected ]]
+  then
+    echo "Cancelled branch switching"
+  else
+    git checkout $selected
+  fi
+}
+
+sw() {
+  selected=$(git branch -a | fzf)
+  echo $selected
+  if [[ -z "$selected" ]]
+  then
+    echo "Cancelled branch switching"
+  else
+    clean_branch=$(echo $selected | sed 's|remotes/origin/||' | sed 's|remotes/||' | sed 's/ //g' )
+    git switch $clean_branch
+  fi
+}
+
+# "/Users/fere/.deno/env"
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+autoload -U compinit
+compinit

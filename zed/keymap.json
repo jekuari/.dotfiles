@@ -1,11 +1,23 @@
 [
   {
     "bindings": {
-      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
-      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
-      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
-      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
-      "ctrl-d": "editor::AcceptPartialCopilotSuggestion"
+      "ctrl-h": [
+        "workspace::ActivatePaneInDirection",
+        "Left"
+      ],
+      "ctrl-l": [
+        "workspace::ActivatePaneInDirection",
+        "Right"
+      ],
+      "ctrl-k": [
+        "workspace::ActivatePaneInDirection",
+        "Up"
+      ],
+      "ctrl-j": [
+        "workspace::ActivatePaneInDirection",
+        "Down"
+      ],
+      "ctrl-b tab": "workspace::ActivateNextPane",
     }
   },
   {
@@ -13,28 +25,34 @@
     "bindings": {
       "J": "vim::Down",
       "K": "vim::Up",
-      "j": ["workspace::SendKeystrokes", "J z z"],
-      "k": ["workspace::SendKeystrokes", "K z z"],
+      "j": [
+        "workspace::SendKeystrokes",
+        "J z z"
+      ],
+      "k": [
+        "workspace::SendKeystrokes",
+        "K z z"
+      ],
       "space": "zed::NoAction",
       "space w": "workspace::Save",
       "space q": "pane::CloseActiveItem",
       "space t": "terminal_panel::ToggleFocus",
-      "g d": "editor::GoToDefinition",
-      "g i": "editor::GoToImplementation",
-      "g t": "editor::GoToTypeDefinition",
-      "g l": "editor::GoToPrevDiagnostic",
+      "space d d": "editor::GoToDefinition",
+      "space d i": "editor::GoToImplementation",
+      "space d t": "editor::GoToTypeDefinition",
       "space f": "file_finder::Toggle",
-      "space s": "workspace::NewSearch",
-      "space d": "zed::OpenDefaultKeymap"
+      "space s": "pane::DeploySearch"
     }
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
     "bindings": {
-      "shift-k": "editor::Hover"
+      "shift-k": "editor::Hover",
+      "space v": "workspace::ToggleLeftDock",
       // put key-bindings here if you want them to work only in normal mode
-      // "down": ["workspace::SendKeystrokes", "4 j"]
-      // "up": ["workspace::SendKeystrokes", "4 k"]
+      // space + i should split vertically
+      "space i": "pane::SplitVertical",
+      "space o": "pane::SplitHorizontal"
     }
   },
   {
@@ -57,7 +75,8 @@
     "bindings": {
       // put key-bindings here if you want them to work in insert mode
       // e.g.
-      "j k": "vim::NormalBefore" // remap jj in insert mode to escape.
+      "j k": "vim::NormalBefore", // remap jj in insert mode to escape.
+      "ctrl-d": "editor::AcceptInlineCompletion",
     }
   }
 ]
