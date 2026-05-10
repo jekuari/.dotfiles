@@ -133,10 +133,10 @@ unset __conda_setup
 # <<< conda initialize <<<
 export PATH="${HOME}/Library/Android/sdk/tools:${HOME}/Library/Android/sdk/platform-tools:${PATH}"
 export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="{$PATH}:{$HOME}/flutter/bin"
+export PATH="${PATH}:${HOME}/flutter/bin"
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="/Users/fere/go/bin:$PATH"
-export PATH="$PATH:/Users/fere/.dotnet/tools"
+export PATH="${PATH}:/Users/fere/.dotnet/tools"
 
 
 # ZVM - Zig Version Manager
@@ -191,6 +191,36 @@ sw() {
 
 # "/Users/fere/.deno/env"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="/Users/fere/.local/share/nvim/mason/bin:$PATH"
+export PATH="$HOME/.local/bi:$PATH"
 
 autoload -U compinit
 compinit
+
+. "$HOME/.local/bin/env"
+
+# The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/fere/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fere/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+# if [ -f '/Users/fere/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fere/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/Users/fere/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="/Users/fere/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/Users/fere/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# Added by Antigravity
+export PATH="/Users/fere/.antigravity/antigravity/bin:$PATH"
+alias php="/usr/local/opt/php@8.1/bin/php"
+
+export GOOGLE_CLOUD_PROJECT="gen-lang-client-0385166697"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

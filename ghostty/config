@@ -1,8 +1,10 @@
 font-family = "JetBrainsMono Nerd Font Mono"
 # The syntax is "key = value". The whitespace around the
 # equals doesn't matter.
-background = #141517
+background = #000000
 foreground = ffffff
+background-opacity = 0.6
+background-blur = 50
 
 macos-icon = custom-style
 
@@ -15,3 +17,7 @@ macos-icon-screen-color = 4DA1A9
 theme = nord
 
 cursor-color = ffffff
+# macos-non-native-fullscreen = true
+
+custom-shader = shaders/cursor_smear.glsl
+custom-shader-animation = true
