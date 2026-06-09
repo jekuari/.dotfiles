@@ -3,8 +3,11 @@ font-family = "JetBrainsMono Nerd Font Mono"
 # equals doesn't matter.
 background = #000000
 foreground = ffffff
-background-opacity = 0.6
+background-opacity = 0.4
 background-blur = 50
+# background-image = "/Users/rferegrino/.config/ghostty/thecliffs.jpeg"
+background-image-fit = cover
+background-image-opacity = 0.6
 
 macos-icon = custom-style
 
@@ -17,7 +20,8 @@ macos-icon-screen-color = 4DA1A9
 theme = nord
 
 cursor-color = ffffff
-# macos-non-native-fullscreen = true
+macos-non-native-fullscreen = true
+# fullscreen = non-native
 
 custom-shader = shaders/cursor_smear.glsl
 custom-shader-animation = true
